@@ -23,11 +23,21 @@ export class Hero {
   // templateはselectorで示されたタグが、DOM上でどのように展開されるかを表す。
   // {{ }}で囲まれた名前はコンポーネントクラスのプロパティと対応する。
   // テンプレートはバッククオートで囲むことで複数行で記述することもできる。
+  //
+  // [[ngModle]]は、inputタグからの入力をコンポーネントに反映することもできる。
+  // input/output両方に対応しているのでtwo way bindingと言われる。
+  // ngModuleを使うにはFormsModuleを使う必要がある。
+  // そのためapp.module.tsで@angular/formsからインポートする必要がある。
   template: `
     <h1>{{title}}</h1>
+    <div>
+      <label>name: </label>
+      <input [(ngModel)]="hero.name" placeholder="name">
+    </div>
     <h2>{{hero.name}} details!</h2>
     <div><label>id: </label>{{hero.id}}</div>
     <div><label>name: </label>{{hero.name}}</div>
+
     `,
 })
 export class AppComponent  {
